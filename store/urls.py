@@ -3,11 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.store, name='store'),
-    path('error/', views.error_404, name='error'),
-    path('cart/', views.cart, name='cart'),
-    path('checkout/', views.checkout, name='checkout'),
+    path('order/cart/', views.cart, name='cart'),
+    path('order/checkout/', views.checkout, name='checkout'),
     path('contact/', views.contact, name='contact'),
-    path('shop/', views.shop, name='shop'),
-    path('shop-details/', views.shop_details, name='shop_details'),
-    path('testimonials/', views.testimonials, name='testimonials'),
+    path('category/', views.shop, name='shop'),
+    path('ptoduct/', views.shop_details, name='shop_details'),
 ]

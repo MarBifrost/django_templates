@@ -6,9 +6,6 @@ from django.shortcuts import render
 def store(request):
     return render(request, 'index.html')
 
-def error_404(request):
-    return render(request, '404.html')
-
 def cart(request):
     return render(request, 'cart.html')
 
@@ -23,6 +20,3 @@ def shop(request):
 
 def shop_details(request):
     return render(request, 'shop-details.html')
-
-def testimonials (request):
-    return render(request, 'testimonial.html')
