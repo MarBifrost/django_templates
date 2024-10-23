@@ -44,8 +44,6 @@ class Product(models.Model):
     sales=models.BooleanField(default=False)
     discount=models.BooleanField(default=False)
     expired = models.BooleanField(default=False)
-    # popularity=models.BooleanField(null=True)
-    # fantastic=models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:
