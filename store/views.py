@@ -6,7 +6,8 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def store(request):
-    return render(request, 'index/index.html')
+    products = Product.objects.all()
+    return render(request, 'index/index.html', {'products': products})
 
 def contact(request):
     return render(request, 'contact/contact.html')
