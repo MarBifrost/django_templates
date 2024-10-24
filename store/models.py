@@ -34,16 +34,15 @@ class Product(models.Model):
     id=models.AutoField(primary_key=True, auto_created=True)
     product_name = models.CharField(max_length=255, null=True, blank=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True)
-    image = models.ImageField('image', upload_to='img/', max_length=255, default='df_image.png')
+    image = models.ImageField('image', upload_to='static/img/', max_length=255, default='df_image.png')
     category_name = models.ManyToManyField(Category, related_name='products')
     quantity=models.IntegerField(null=True)
     price=models.DecimalField(max_digits=5, decimal_places=2)
     product_description = models.CharField(max_length=255, null=True, blank=True)
-    organic = models.BooleanField(default=False)
-    fresh= models.BooleanField(default=False)
+    for_piano = models.BooleanField(default=False)
+    for_orchestra = models.BooleanField(default=False)
     sales=models.BooleanField(default=False)
     discount=models.BooleanField(default=False)
-    expired = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:

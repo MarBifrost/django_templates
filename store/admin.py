@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('product_name', 'quantity', 'price', 'product_description', 'organic', 'fresh', 'sales', 'discount', 'expired')
+    list_display = ('product_name', 'quantity', 'price', 'image', 'product_description', 'for_piano', 'for_orchestra', 'sales', 'discount')
     list_filter = ('product_name', )
     search_fields = ('product_name', 'price')
 
