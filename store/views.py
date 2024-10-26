@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from .models import Product, Category
-from django.db.models import *
+from django.db.models import Q
 from django.core.paginator import Paginator
 
 # Create your views here.
 
 def store(request):
     products = Product.objects.all()
+    query = request.GET.get('q')
+    if query:
+        keywords = query.split()
+        query_filter = Q()
+        for keyword in keywords:
+            query_filter &= Q(product_name__icontains=keyword)
+        products = Product.objects.filter(query_filter)
+
     return render(request, 'index/index.html', {'products': products})
 
 def contact(request):
