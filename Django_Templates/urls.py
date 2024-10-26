@@ -24,11 +24,10 @@ urlpatterns = [
     path('', include('store.urls')),
     path('order/', include(('order.urls'), namespace='order')),
     path('admin/', admin.site.urls),
-] + debug_toolbar_urls()
+]
 
 if settings.DEBUG:
     import debug_toolbar
-
-    urlpatterns = [
+    urlpatterns += [
                       path('__debug__/', include(debug_toolbar.urls)),
-                  ] + urlpatterns
+                  ]
