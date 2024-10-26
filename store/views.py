@@ -15,6 +15,7 @@ def store(request):
             query_filter &= Q(product_name__icontains=keyword)
         products = Product.objects.filter(query_filter)
 
+        return render(request, 'shop/shop.html', {'products': products})
     return render(request, 'index/index.html', {'products': products})
 
 def contact(request):

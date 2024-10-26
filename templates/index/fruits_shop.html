@@ -8,15 +8,6 @@
                         <div class="col-lg-4 text-start">
                             <h1>ჩვენი პროდუქტები</h1>
                         </div>
-<!--                        <div class="col-lg-8 text-end">-->
-<!--                            <ul class="nav nav-pills d-inline-flex text-center mb-5">-->
-<!--                                <li class="nav-item">-->
-<!--                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">-->
-<!--                                        <span class="text-dark" style="width: 130px;">ყველა პროდუქტი</span>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
                     </div>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
@@ -34,7 +25,7 @@
                                                         <p>{{ product.product_description }}</p>
                                                         <div class="d-flex justify-content-between flex-lg-wrap">
                                                             <p class="text-dark fs-5 fw-bold mb-0">${{ product.price}}</p>
-                                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                            <a href="{% url 'order:add_to_cart' product.id%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                         </div>
                                                     </div>
                                                 </div>
