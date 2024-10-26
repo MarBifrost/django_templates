@@ -39,10 +39,6 @@ class Product(models.Model):
     quantity=models.IntegerField(null=True)
     price=models.DecimalField(max_digits=5, decimal_places=2)
     product_description = models.CharField(max_length=255, null=True, blank=True)
-    for_piano = models.BooleanField(default=False)
-    for_orchestra = models.BooleanField(default=False)
-    sales=models.BooleanField(default=False)
-    discount=models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:
