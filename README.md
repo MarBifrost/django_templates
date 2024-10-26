@@ -28,7 +28,7 @@ To get started with the project, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-    git clone https://github.com/yourusername/ecommerce-music-store.git
+    git clone https://github.com/MarBifrost/django_templates
     cd ecommerce-music-store
     python -m venv venv
     source venv/bin/activate
