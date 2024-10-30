@@ -44,9 +44,11 @@ Add products to your cart and proceed to checkout.
 Manage your account and orders through the user dashboard.
 
 3. **Database Setup**
-Ensure you're using a database engine compatible with Django, such as PostgreSQL, MySQL, or SQLite. In this case you can download ready database, just to test the Functionality
+Ensure you're using a database engine compatible with Django. In this case I used SQLite and you can download ready database, just to test the Functionality
+- Superuser username: admin
+- Superuser password: admin123
 
-4. **Models**
+5. **Models**
 Models
 You have the following primary models:
 
