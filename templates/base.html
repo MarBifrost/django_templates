@@ -54,15 +54,15 @@
                 </div>
                 <div class="container px-0">
                     <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                        <a href="{% url 'store' %}" class="navbar-brand"><h1 class="text-primary display-6">მუსიკალური მაღაზია</h1></a>
+                        <a href="{% url 'store:store' %}" class="navbar-brand"><h1 class="text-primary display-6">მუსიკალური მაღაზია</h1></a>
                         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars text-primary"></span>
                         </button>
                         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
-                                <a href="{% url 'store' %}" class="nav-item nav-link active">მთავარი</a>
-                                <a href="{% url 'shop' %}" class="nav-item nav-link">მაღაზია</a>
-<!--                                <a href="{% url 'shop_details' %}" class="nav-item nav-link">დეტალები</a>-->
+                                <a href="{% url 'store:store' %}" class="nav-item nav-link active">მთავარი</a>
+                                <a href="{% url 'store:shop' %}" class="nav-item nav-link">მაღაზია</a>
+<!--                                <a href="{% url 'store:shop_details' %}" class="nav-item nav-link">დეტალები</a>-->
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">შეკვეთა</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -70,7 +70,7 @@
                                         <a href="{% url 'order:checkout' %}" class="dropdown-item">გადახდა</a>
                                     </div>
                                 </div>
-                                <a href="{% url 'contact' %}" class="nav-item nav-link">კონტაქტი</a>
+                                <a href="{% url 'store:contact' %}" class="nav-item nav-link">კონტაქტი</a>
                             </div>
                             <div class="d-flex m-3 me-0">
                                 <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
@@ -78,7 +78,7 @@
                                     <i class="fa fa-shopping-bag fa-2x"></i>
                                     <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{total_quantity}}</span>
                                 </a>
-                                <a href="" class="my-auto">
+                                <a href="{% url 'store:login' %}" class="my-auto">
                                     <i class="fas fa-user fa-2x"></i>
                                 </a>
                             </div>
@@ -115,6 +115,7 @@
         {% block contact %} {% endblock %}
         {% block shop %} {% endblock %}
         {% block shop-details %}{% endblock %}
+        {% block login %} {% endblock %}
      <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
             <div class="container py-5">

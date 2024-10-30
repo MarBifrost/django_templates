@@ -62,7 +62,7 @@
                             <div class="navbar-nav mx-auto">
                                 <a href="{% url 'store:store' %}" class="nav-item nav-link active">მთავარი</a>
                                 <a href="{% url 'store:shop' %}" class="nav-item nav-link">მაღაზია</a>
-<!--                                <a href="{% url 'shop_details' %}" class="nav-item nav-link">დეტალები</a>-->
+<!--                                <a href="{% url 'store:shop_details' %}" class="nav-item nav-link">დეტალები</a>-->
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">შეკვეთა</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -78,7 +78,7 @@
                                     <i class="fa fa-shopping-bag fa-2x"></i>
                                     <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{total_quantity}}</span>
                                 </a>
-                                <a href="" class="my-auto">
+                                <a href="{% url 'store:login' %}" class="my-auto">
                                     <i class="fas fa-user fa-2x"></i>
                                 </a>
                             </div>
@@ -105,15 +105,7 @@
                 </div>
             </div>
             <!-- Modal Search End -->
-        {% block Feature_start %} {% endblock %}
-        {% block banner_section %} {% endblock %}
-        {% block cart %} {% endblock %}
-        {% block checkout %} {% endblock %}
-        {% block contact %} {% endblock %}
-        {% block shop %} {% endblock %}
-        {% block shop-details %}{% endblock %}
-
-
+        {% block login %} {% endblock %}
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -125,6 +117,7 @@
     <script src="{% static 'lib/easing/easing.min.js' %}"></script>
     <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
     <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
