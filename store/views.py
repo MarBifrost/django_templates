@@ -1,4 +1,5 @@
 from django.contrib.auth.views import LoginView
+from django.http import HttpResponseNotAllowed
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RegistrationForm, UserCreationForm
 from .models import Product, Category
@@ -89,19 +90,23 @@ class CategoryView(View):
 
 
 class Registration(View):
-    def register(self, request, *args):
-        if request.method == 'POST':
-            form = UserCreationForm(request.POST)
-            if form.is_valid():
-                user = form.save()
-                login(request, user)
-                return redirect('index/index.html', {'form': form})
-        else:
-            form = RegistrationForm()
-        return render(request, 'registration/register.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('store')
+        return render(request, 'registration/registration.html', {'form': form})
+
+
+    def get(self, request):
+        form = RegistrationForm()
+        return render(request, 'registration/registration.html', {'form': form})
+
 
 
 class CustomLoginView(LoginView):
     redirect_authenticated = True
     template_name = 'registration/login.html'
-    success_url = '/'
+    success_url = 'index/index.html'

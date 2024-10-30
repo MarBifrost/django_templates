@@ -13,11 +13,3 @@ urlpatterns = [
     path('account/', LoginView.as_view(), name='login'),
     path('registration/', Registration.as_view(), name='registration'),
 ]
-
-# urlpatterns = [
-#     path('', views.store, name='store'),
-#     path('contact/', views.contact, name='contact'),
-#     path('shop/', views.shop, name='shop'),
-#     path('product/', views.shop_details, name='shop_details'),
-#     path('category/<slug:slug>', views.category_view, name='category_view'),
-# ]
