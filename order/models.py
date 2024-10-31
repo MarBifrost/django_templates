@@ -33,3 +33,5 @@ class CartItem(models.Model):
         return f"{self.product.product_name if self.product else 'კალათა ცარიელია'} - {self.quantity} X {self.price}"
         # product_name = self.product.product_name if self.product else "კალათა ცარიელია"
         # return f"{product_name}{self.quantity}{self.total_price}"
+
+

@@ -1,12 +1,13 @@
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import RegistrationForm, UserCreationForm
+from .forms import RegistrationForm, UserCreationForm, LoginForm
 from .models import Product, Category
 from order.models import Cart, CartItem
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth import login
+from django.contrib import messages
 
 # Create your views here.
 
@@ -23,9 +24,9 @@ class StoreView(View):
     def get(self, request):
         products = Product.objects.all()
         query = request.GET.get('q')
-        cart = Cart.objects.get(user=request.user)
-        cart_items = CartItem.objects.filter(cart=cart)
-        total_quantity = sum(item.quantity for item in cart_items)
+        # cart = Cart.objects.get(user=request.user)
+        # cart_items = CartItem.objects.filter(cart=cart)
+        # total_quantity = sum(item.quantity for item in cart_items)
 
         if query:
             keywords = query.split()
@@ -38,9 +39,9 @@ class StoreView(View):
 
         context = {
             'products': products,
-            'cart': cart,
-            'cart_items': cart_items,
-            'total_quantity': total_quantity,
+            # 'cart': cart,
+            # 'cart_items': cart_items,
+            # 'total_quantity': total_quantity,
         }
         return render(request, 'index/index.html', context)
 
@@ -96,7 +97,11 @@ class Registration(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('store')
+            messages.success(request, "რეგისტრაცია წარმატებულია!")
+            return redirect('store:store')
+        else:
+            messages.error(request, form.errors)
+        form = RegistrationForm()
         return render(request, 'registration/registration.html', {'form': form})
 
 
@@ -104,9 +109,30 @@ class Registration(View):
         form = RegistrationForm()
         return render(request, 'registration/registration.html', {'form': form})
 
+# def register(request):
+#     if request.method == 'POST':
+#         form = RegistrationForm(request.POST)
+#         if form.is_valid():
+#             user=form.save()
+#             login(request, user)
+#             messages.success(request, 'Your account has been created!')
+#             return redirect('store:store')
+#         else:
+#             messages.error(request, 'Please correct the error below.')
+#     else:
+#         form = RegistrationForm()
+#     return render(request, 'registration/registration.html', {"form": form})
+
 
 
 class CustomLoginView(LoginView):
-    redirect_authenticated = True
-    template_name = 'registration/login.html'
-    success_url = 'index/index.html'
+    def user_login(self, request):
+        if request.method == 'POST':
+            form = LoginForm(data=request.POST)
+            if form.is_valid():
+                user = form.save()
+                login(request, user)
+                return redirect('store:store')
+        else:
+            form = LoginForm()
+        return render(request, 'registration/login.html', {'form': form})

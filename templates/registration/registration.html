@@ -4,13 +4,19 @@
 <div class="text-lg-center" style="display: block; justify-content: center; align-items: center; margin-top: 340px;">
     <h3 style="font-size: 15px; ">რეგისტრაციისთვის შეიყვანეთ თქვენი მონაცემები</h3><br>
     <form method="POST" action="{% url 'store:registration' %}">
+        {% csrf_token %}
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
-            {% csrf_token %}
-            {{form.username}}
-            {{form.password1}}
-            {{form.password2}}
-            <button type="submit" class="btn-outline-dark" action="{% url 'store:registration' %}">რეგისტრაცია</button>
+            {{form.username.label}}: {{form.username}}
+            {{form.email.label}}: {{ form.email }}
+            {{form.password1.label}}: {{form.password1}}
+            {{form.password2.label}}: {{form.password2}}
+            <button type="submit" class="btn-outline-dark">რეგისტრაცია</button>
         </div>
+        {% if form.errors %}
+            <div class="errorlist">
+                {{form.errors}}
+            </div>
+        {% endif %}
 
     </form>
 </div>

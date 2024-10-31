@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
-    'order',
+    'store.apps.StoreConfig',
+    'order.apps.OrderConfig',
     'mptt',
     'debug_toolbar',
 ]
@@ -47,6 +47,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / './static/',
 ]
+
+LOGIN_REDIRECT_URL = 'store:index'
+LOGOUT_REDIRECT_URL = 'store:index'
 
 
 MIDDLEWARE = [
