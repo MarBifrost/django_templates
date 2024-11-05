@@ -76,9 +76,9 @@
                                 <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
                                 <a href="{% url 'order:cart' %}" class="position-relative me-4 my-auto">
                                     <i class="fa fa-shopping-bag fa-2x"></i>
-                                    <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{total_quantity}}</span>
+                                    <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">{{ total_quantity }}</span>
                                 </a>
-                                <a href="{% url 'store:login' %}" class="my-auto">
+                                <a href="{% url 'accounts:profile' %}" class="my-auto">
                                     <i class="fas fa-user fa-2x"></i>
                                 </a>
                             </div>
@@ -116,6 +116,8 @@
         {% block shop %} {% endblock %}
         {% block shop-details %}{% endblock %}
         {% block login %} {% endblock %}
+        {% block profile %} {% endblock %}
+        {% block 404 %} {% endblock %}
      <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
             <div class="container py-5">

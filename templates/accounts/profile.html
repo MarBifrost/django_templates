@@ -1,0 +1,16 @@
+{%extends "../base.html" %}
+{% load static %}
+{% block profile %}
+
+    <h2>{{ user.username }}'s profile</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+</form>
+<form method="post" action="{% url 'accounts:logout' %}">
+    {% csrf_token %}
+    <button type="submit">გამოსვლა</button>
+</form>
+
+
+{% endblock %}

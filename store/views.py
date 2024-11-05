@@ -98,7 +98,7 @@ class Registration(View):
             user = form.save()
             login(request, user)
             messages.success(request, "რეგისტრაცია წარმატებულია!")
-            return redirect('store:store')
+            return redirect('accounts:profile')
         else:
             messages.error(request, form.errors)
         form = RegistrationForm()

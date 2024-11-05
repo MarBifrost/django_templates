@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'mptt',
     'debug_toolbar',
+    'accounts.apps.AccountsConfig',
 ]
 
 STATIC_URL = '/static/'
@@ -48,8 +49,8 @@ STATICFILES_DIRS = [
     BASE_DIR / './static/',
 ]
 
-LOGIN_REDIRECT_URL = 'store:index'
-LOGOUT_REDIRECT_URL = 'store:index'
+LOGIN_REDIRECT_URL = 'accounts:profile'
+LOGOUT_REDIRECT_URL = 'store:store'
 
 
 MIDDLEWARE = [
@@ -84,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'order.context_processors.cart_quantity',
             ],
         },
     },

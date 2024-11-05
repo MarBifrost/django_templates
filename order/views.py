@@ -33,11 +33,12 @@ class AddToCartView(LoginRequiredMixin, View):
         if not created:
             cart_item.quantity += 1
         cart_item.save()
-        return redirect('order:cart')
+        # return redirect('order:cart')
+        return redirect(request.META.get('HTTP_REFERER', 'store:store'))
 
 class RemoveFromCartView(LoginRequiredMixin, View):
     def get(self, request, product_id):
-        cart_item = get_object_or_404(CartItem, product_id=product_id)
+        cart_item = CartItem.objects.filter(product_id=product_id)
         cart_item.delete()
         return redirect('order:cart')
 
@@ -67,5 +68,10 @@ class RefreshView(View):
 class CheckoutView(View):
     def get(self, request):
         return render(request, 'order/checkout.html')
+
+
+class ErrorHandlerView(View):
+    def get(self, request):
+        return render(request, 'order/404.html')
 
 

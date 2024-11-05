@@ -10,14 +10,6 @@ urlpatterns = [
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('shop/', PriceRangeView.as_view(), name='get_price_range'),
     path('refresh/', RefreshView.as_view(), name='refresh'),
+    path('error/', CheckoutView.as_view(), name='error'),
 ]
 
-# urlpatterns = [
-#     path('cart/', views.cart, name='cart'),
-#     path('add-to-cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
-#     path('remove/<int:product_id>/', views.remove_from_cart, name='remove_from_cart'),
-#     path('checkout/', views.checkout, name='checkout'),
-#     path('accounts/login/', admin.site.urls),
-#     path('filter-price/', views.get_price_range, name='get_price_range'),
-#
-# ]
