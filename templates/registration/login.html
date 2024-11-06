@@ -3,22 +3,19 @@
 {% block login %}
 <div class="text-lg-center" style="display: block; justify-content: center; align-items: center; margin-top: 340px;">
     <h3 style="font-size: 15px; ">ავტორიზაციისთვის შეიყვანეთ თქვენი მონაცემები და დააკლიკეთ შესვლას</h3><br>
-    <form method="POST" action="{% url 'store:login' %}">
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
-            {% csrf_token %}
-            {{form.username}}
-            {{form.password}}
-            <button type="submit" class="btn-outline-dark">შესვლა</button>
-        </div>
-
-    </form>
     {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{message.tags}}">
-                {{ message }}
-            </div>
-        {% endfor %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
     {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
 </div><br>
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <h3 style="font-size: 15px;">თუ არ ხარ რეგისტრირებული</h3>

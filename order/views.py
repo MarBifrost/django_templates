@@ -1,11 +1,24 @@
+from msilib.schema import ListView
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from  store.models import Product
 from .models import Cart, CartItem
 from django.views import View
+from django.views.generic import TemplateView
+from django.contrib import messages
 
-class CartView(LoginRequiredMixin, View):
+class CartView(LoginRequiredMixin, TemplateView):
     template_name = 'order/cart.html'
+    login_url = 'store:login'
+    redirect_field_name = "next"
+
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.info(request, 'კალათის შიგთავსის სანახავად, გთხოვთ გაიაროთ ავტორიზაცია')
+            return redirect(self.login_url)
+        return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
         cart=Cart.objects.get(user=request.user)

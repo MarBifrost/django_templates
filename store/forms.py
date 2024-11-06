@@ -27,11 +27,10 @@ class LoginForm(forms.Form):
         password = self.cleaned_data.get('password')
         if username and password:
             try:
-
                 user = User.objects.get(username=username)
                 if not user.check_password(password):
-                    raise forms.ValidationError("Incorrect Password")
+                    raise forms.ValidationError("არასწორი პაროლი")
             except User.DoesNotExist:
-                raise forms.ValidationError("Incorrect Username")
+                raise forms.ValidationError("მომხმარებლის არასწორი სახელი")
         return cleaned_data
 

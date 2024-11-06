@@ -8,6 +8,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 
@@ -18,6 +19,7 @@ from .models import Product, Category
 from order.models import Cart, CartItem
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.views.generic import FormView
 
 
 class StoreView(View):
@@ -104,22 +106,16 @@ class Registration(View):
 
 
 
-class CustomLoginView(LoginView):
-    form_class = LoginForm
+class CustomLoginView(FormView):
+    form_class = AuthenticationForm
+    template_name = 'registration/login.html'
+    success_url = '/'
 
-    def post(self, request, *args, **kwargs):
-        form = self.get_form()
-        if form.is_valid():
-            username=form.cleaned_data['username']
-            password=form.cleaned_data['password']
+    def form_valid(self, form):
+        user = form.get_user()
+        login(self.request, user)
+        return redirect(self.get_success_url())
 
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('store:store')
-            else:
-                messages.error(request, "არასწორი მონაცემები")
-                return self.form_invalid(form)
-        else:
-            messages.error(request, "არასწორი მონაცემები")
-            return self.form_invalid(form)
+    def form_invalid(self, form):
+        messages.error(self.request, 'არასწორი მონაცემები')
+        return super().form_invalid(form)

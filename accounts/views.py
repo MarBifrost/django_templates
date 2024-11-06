@@ -10,7 +10,6 @@ def profile_view(request):
     if request.method == 'POST':
         form=ProfileForm(request.POST, instance=profile)
         if form.is_valid():
-            form.save()
             return redirect('profile')
     else:
         form = ProfileForm(instance=profile)
