@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import CartView, AddToCartView, RemoveFromCartView, PriceRangeView, RefreshView, CheckoutView
+from .views import CartView, AddToCartView, RemoveFromCartView, PriceRangeView, RefreshView, CheckoutView, \
+    custom_404_view
 
 app_name = 'order'
 
@@ -10,6 +11,6 @@ urlpatterns = [
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('shop/', PriceRangeView.as_view(), name='get_price_range'),
     path('refresh/', RefreshView.as_view(), name='refresh'),
-    path('error/', CheckoutView.as_view(), name='error'),
+    path('error/', custom_404_view, name='error'),
 ]
 

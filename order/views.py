@@ -70,8 +70,7 @@ class CheckoutView(View):
         return render(request, 'order/checkout.html')
 
 
-class ErrorHandlerView(View):
-    def get(self, request):
-        return render(request, 'order/404.html')
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
 
 
