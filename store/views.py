@@ -6,7 +6,7 @@ from .models import Product, Category
 from order.models import Cart, CartItem
 from django.db.models import Q
 from django.core.paginator import Paginator
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib import messages
 
 # Create your views here.
@@ -24,9 +24,6 @@ class StoreView(View):
     def get(self, request):
         products = Product.objects.all()
         query = request.GET.get('q')
-        # cart = Cart.objects.get(user=request.user)
-        # cart_items = CartItem.objects.filter(cart=cart)
-        # total_quantity = sum(item.quantity for item in cart_items)
 
         if query:
             keywords = query.split()
@@ -58,16 +55,12 @@ class ShopView(View):
         paginator = Paginator(products, 1)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        cart = Cart.objects.get(user=request.user)
-        cart_items = CartItem.objects.filter(cart=cart)
-        total_quantity = sum(item.quantity for item in cart_items)
+
 
         content = {
             'page_obj': page_obj,
             'categories': categories,
-            'cart': cart,
-            'cart_items': cart_items,
-            'total_quantity': total_quantity,
+
         }
         return render(request, 'shop/shop.html', content)
 
@@ -109,30 +102,24 @@ class Registration(View):
         form = RegistrationForm()
         return render(request, 'registration/registration.html', {'form': form})
 
-# def register(request):
-#     if request.method == 'POST':
-#         form = RegistrationForm(request.POST)
-#         if form.is_valid():
-#             user=form.save()
-#             login(request, user)
-#             messages.success(request, 'Your account has been created!')
-#             return redirect('store:store')
-#         else:
-#             messages.error(request, 'Please correct the error below.')
-#     else:
-#         form = RegistrationForm()
-#     return render(request, 'registration/registration.html', {"form": form})
-
 
 
 class CustomLoginView(LoginView):
-    def user_login(self, request):
-        if request.method == 'POST':
-            form = LoginForm(data=request.POST)
-            if form.is_valid():
-                user = form.save()
+    form_class = LoginForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            username=form.cleaned_data['username']
+            password=form.cleaned_data['password']
+
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
                 login(request, user)
                 return redirect('store:store')
+            else:
+                messages.error(request, "არასწორი მონაცემები")
+                return self.form_invalid(form)
         else:
-            form = LoginForm()
-        return render(request, 'registration/login.html', {'form': form})
+            messages.error(request, "არასწორი მონაცემები")
+            return self.form_invalid(form)

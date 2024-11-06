@@ -1,13 +1,13 @@
-{%extends "../base.html" %}
+{%extends "./base_for_accounts.html" %}
 {% load static %}
 {% block profile %}
 
     <h2>{{ user.username }}'s profile</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.name }}
 </form>
-<form method="post" action="{% url 'accounts:logout' %}">
+<form method="post" action="{% url 'accounts:logout' %}" style="display: flex; align-items: center; justify-content: center; margin-top: 500px;">
     {% csrf_token %}
     <button type="submit">გამოსვლა</button>
 </form>

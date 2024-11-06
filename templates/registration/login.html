@@ -12,6 +12,13 @@
         </div>
 
     </form>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 </div><br>
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <h3 style="font-size: 15px;">თუ არ ხარ რეგისტრირებული</h3>
