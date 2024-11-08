@@ -18,14 +18,22 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include, re_path
 from debug_toolbar.toolbar import debug_toolbar_urls
+from django.conf.urls.i18n import i18n_patterns
+# from django.shortcuts import redirect
+# from django.utils.translation import get_language, activate
+#
+# def redirect_to_default_language(request):
+#     activate('ka')
+#     return redirect(f'/{get_language()}')
 
+urlpatterns = []
 
-urlpatterns = [
-    path('', include(('store.urls'), namespace='store')),
-    path('order/', include(('order.urls'), namespace='order')),
-    path('accounts/', include(('accounts.urls'), namespace='accounts')),
+urlpatterns += i18n_patterns(
+    path('', include('store.urls', namespace='store')),
+    path('order/', include('order.urls', namespace='order')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
-]
+)
 
 if settings.DEBUG:
     import debug_toolbar
@@ -33,7 +41,7 @@ if settings.DEBUG:
                       path('__debug__/', include(debug_toolbar.urls)),
                   ]
 
-if 'rosseta' in settings.INSTALLED_APPS:
-    urlpatterns += [
-        re_path(r'^rosetta/', include('rosetta.urls')),
-    ]
+# if 'rosseta' in settings.INSTALLED_APPS:
+#     urlpatterns += [
+#         re_path(r'^rosetta/', include('rosetta.urls')),
+#     ]

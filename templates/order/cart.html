@@ -1,13 +1,14 @@
 {%extends "../base.html" %}
 {% load static %}
+{% load i18n %}
 {% block cart %}
 <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">კალათა</h1>
+            <h1 class="text-center text-white display-6">{% trans "კალათა" %}</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="#">მთავარი</a></li>
-                <li class="breadcrumb-item"><a href="#">გვერდები</a></li>
-                <li class="breadcrumb-item active text-white">კალათა</li>
+                <li class="breadcrumb-item"><a href="#">{% trans "მთავარი" %}</a></li>
+                <li class="breadcrumb-item"><a href="#">{% trans "გვერდები" %}</a></li>
+                <li class="breadcrumb-item active text-white">{% trans "კალათა" %}</li>
             </ol>
         </div>
         <!-- Single Page Header End -->
@@ -18,12 +19,12 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">პროდუქტები</th>
-                            <th scope="col">სახელი</th>
-                            <th scope="col">ფასი</th>
-                            <th scope="col">რაოდენობა</th>
-                            <th scope="col">მთლიანად</th>
-                            <th scope="col">წაშლა</th>
+                            <th scope="col">{% trans "პროდუქტები" %}</th>
+                            <th scope="col">{% trans "სახელი" %}</th>
+                            <th scope="col">{% trans "ფასი" %}</th>
+                            <th scope="col">{% trans "რაოდენობა" %}</th>
+                            <th scope="col">{% trans "მთლიანად" %}</th>
+                            <th scope="col">{% trans "წაშლა" %}</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -48,7 +49,7 @@
                 </div>
                 <div class="mt-5">
                     <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="კუპონის კოდი">
-                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">დაადასტურე კუპონი</button>
+                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">{% trans "დაადასტურე კუპონი" %}</button>
                 </div>
                 <div class="row g-4 justify-content-end">
                     <div class="col-8"></div>
@@ -57,21 +58,21 @@
                             <div class="p-4">
                                 <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
                                 <div class="d-flex justify-content-between mb-4">
-                                    <h5 class="mb-0 me-4">შეკვეთის ღირებულება:</h5>
+                                    <h5 class="mb-0 me-4">{% trans "შეკვეთის ღირებულება": %}</h5>
                                     <p class="mb-0">{{total_price}}</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0 me-4">მიწოდების საფასური:</h5>
+                                    <h5 class="mb-0 me-4">{% trans "მიწოდების საფასური": %}</h5>
                                     <div class="">
                                         <p class="mb-0">$3.00</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
-                                <h5 class="mb-0 ps-4 me-4">ჯამში</h5>
+                                <h5 class="mb-0 ps-4 me-4">{% trans ჯამში %}</h5>
                                 <p class="mb-0 pe-4">{{total}}</p>
                             </div>
-                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">გააგრძელე გადახდა</button>
+                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">{% trans "გააგრძელე გადახდა" %}</button>
                         </div>
                     </div>
                 </div>

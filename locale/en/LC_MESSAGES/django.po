@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-08 11:42+0400\n"
+"POT-Creation-Date: 2024-11-08 13:50+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,15 +22,15 @@ msgstr ""
 msgid "კალათის შიგთავსის სანახავად, გთხოვთ გაიაროთ ავტორიზაცია"
 msgstr "Please log to view cart content"
 
-#: .\store\models.py:36
+#: .\store\models.py:36 .\templates\order\cart.html:23
 msgid "სახელი"
 msgstr "name"
 
-#: .\store\models.py:40
+#: .\store\models.py:40 .\templates\order\cart.html:25
 msgid "რაოდენობა"
 msgstr "quantity"
 
-#: .\store\models.py:41
+#: .\store\models.py:41 .\templates\order\cart.html:24
 msgid "ფასი"
 msgstr "price"
 
@@ -46,13 +46,267 @@ msgstr "You've registered successfully"
 msgid "არასწორი მონაცემები"
 msgstr "Wrong credentials"
 
-#: .\templates\accounts\base_for_accounts.html:7
+#: .\templates\accounts\base_for_accounts.html:7 .\templates\base.html:7
+#: .\templates\base.html:129 .\templates\index\index.html:10
+#: .\templates\registration\base_for_reg.html:7
 msgid "მელომანი"
-msgstr ""
+msgstr "Meloman"
 
-#: .\templates\accounts\profile.html:12
+#: .\templates\accounts\profile.html:13
 msgid "გამოსვლა"
-msgstr ""
+msgstr "Logout"
+
+#: .\templates\base.html:46 .\templates\registration\base_for_reg.html:46
+msgid "ჭავჭავაძის ქ. #36"
+msgstr "Tchavtchavadze str. #38"
+
+#: .\templates\base.html:58
+#, fuzzy
+#| msgid "არასწორი მონაცემები"
+msgid "მუსიკალური მაღაზია "
+msgstr "Music Shop"
+
+#: .\templates\base.html:64 .\templates\contact\contact.html:9
+#: .\templates\order\cart.html:9 .\templates\registration\base_for_reg.html:64
+msgid "მთავარი"
+msgstr "Home"
+
+#: .\templates\base.html:65 .\templates\registration\base_for_reg.html:65
+msgid "მაღაზია"
+msgstr "Shop"
+
+#: .\templates\base.html:68 .\templates\registration\base_for_reg.html:68
+msgid "შეკვეთა"
+msgstr "Order"
+
+#: .\templates\base.html:70 .\templates\order\cart.html:7
+#: .\templates\order\cart.html:11 .\templates\registration\base_for_reg.html:70
+msgid "კალათა"
+msgstr "Cart"
+
+#: .\templates\base.html:71 .\templates\registration\base_for_reg.html:71
+msgid "გადახდა"
+msgstr "Checkout"
+
+#: .\templates\base.html:74 .\templates\base.html:174
+#: .\templates\contact\contact.html:7 .\templates\contact\contact.html:11
+#: .\templates\registration\base_for_reg.html:74
+msgid "კონტაქტი"
+msgstr "contact"
+
+#: .\templates\base.html:130
+msgid "მუსიკა შენი გემოვნებით"
+msgstr "Your taste in music"
+
+#: .\templates\base.html:152
+#, fuzzy
+#| msgid "რეგისტრაცია წარმატებულია!"
+msgid "ინფორმაცია მაღაზიის შესახებ:"
+msgstr "About"
+
+#: .\templates\base.html:153
+msgid "ჩვენს შესახებ "
+msgstr "About us"
+
+#: .\templates\base.html:154
+msgid "დაგვიკავშირდი"
+msgstr "Keep in touch"
+
+#: .\templates\base.html:155
+msgid "კონფიდენციალურობა"
+msgstr "Privacy"
+
+#: .\templates\base.html:156
+msgid "წესები და პირობები"
+msgstr "Terms and conditions"
+
+#: .\templates\base.html:157
+msgid "დაბრუნების პოლიტიკა"
+msgstr "Return Policy"
+
+#: .\templates\base.html:158
+msgid "FAQs და დახმარება"
+msgstr "FAQ"
+
+#: .\templates\base.html:163
+msgid "ანგარიში"
+msgstr "Account"
+
+#: .\templates\base.html:164
+msgid "ჩემი ანგარიში"
+msgstr "My account"
+
+#: .\templates\base.html:165
+msgid "მაღაზიის დეტალები"
+msgstr "Shop Details"
+
+#: .\templates\base.html:166
+msgid "თქვენი კალათა"
+msgstr "Your cart"
+
+#: .\templates\base.html:167
+msgid "სურვილების სია"
+msgstr "Wishlist"
+
+#: .\templates\base.html:168
+msgid "შეკვეთების ისტორია"
+msgstr "Order History"
+
+#: .\templates\base.html:169
+msgid "საერთაშორისო შეკვეთები"
+msgstr "International orders"
+
+#: .\templates\base.html:175
+msgid "მისამართი: თბილისი, ჭავჭავაძის ქ. #36"
+msgstr "address: Tbilisi, Tchavtchavadze str. #36"
+
+#: .\templates\base.html:176
+msgid "ელფოსტა"
+msgstr "email"
+
+#: .\templates\base.html:177 .\templates\contact\contact.html:58
+msgid "ტელეფონი"
+msgstr "phone"
+
+#: .\templates\base.html:178
+msgid "გადახდის მეთოდები:"
+msgstr "Pay methods"
+
+#: .\templates\contact\contact.html:10 .\templates\order\cart.html:10
+msgid "გვერდები"
+msgstr "pages"
+
+#: .\templates\contact\contact.html:22
+msgid "დაგვიკავშირდით"
+msgstr "Contact us"
+
+#: .\templates\contact\contact.html:37
+#, fuzzy
+#| msgid "გამოსვლა"
+msgid "გამოაგზავნე"
+msgstr "Send"
+
+#: .\templates\contact\contact.html:44
+msgid "მისამართი"
+msgstr "Address"
+
+#: .\templates\contact\contact.html:45
+msgid "თბილისი, ჭავჭავაძის ქ. #36"
+msgstr "Tbilisi, Tchavtchavadze str. #36"
+
+#: .\templates\contact\contact.html:51
+msgid "მოგვწერე"
+msgstr "email us"
+
+#: .\templates\errors\404.html:5
+#, fuzzy
+msgid "რეგისტრაცია წარმატებულია!"
+msgstr "You've registered successfully"
+
+msgid "გაიარეთ ავტორიზაცია"
+msgstr "Please, log in"
+
+#: .\templates\index\fruits_shop.html:10
+#, fuzzy
+#| msgid "პროდუქტის აღწერა"
+msgid "ჩვენი პროდუქტები"
+msgstr "Description"
+
+msgid "ჩვენი პროდუქტები"
+msgstr "Our Products"
+
+#: .\templates\index\index.html:11
+msgid "უსმინე მუსიკას ჩვენთან ერთად"
+msgstr "Listen to music with us"
+
+#: .\templates\index\index.html:15
+msgid "მოძებნე"
+msgstr "Search"
+
+#: .\templates\index\index.html:35
+msgid "წინა"
+msgstr "Previous"
+
+#: .\templates\index\index.html:39
+msgid "შემდეგი"
+msgstr "Next"
+
+#: .\templates\index\index.html:60
+msgid "ბილეთების შეძენა"
+msgstr "Buy Tickets"
+
+#: .\templates\order\cart.html:22
+#, fuzzy
+msgid "პროდუქტის აღწერა"
+msgstr "Product Description"
+
+msgid "პროდუქტები"
+msgstr "Description"
+
+#: .\templates\order\cart.html:26
+msgid "მთლიანად"
+msgstr "Summary"
+
+#: .\templates\order\cart.html:27
+msgid "წაშლა"
+msgstr "delete"
+
+#: .\templates\order\cart.html:52
+msgid "დაადასტურე კუპონი"
+msgstr "Apply Coupon"
+
+#: .\templates\order\cart.html:61
+#, fuzzy
+msgid "რეგისტრაცია წარმატებულია!"
+msgstr "You've registered successfully"
+
+msgid "შეკვეთის ღირებულება"
+msgstr "Order cost"
+
+#: .\templates\order\cart.html:65
+msgid "მიწოდების საფასური"
+msgstr "Deliver price"
+
+#: .\templates\order\cart.html:75
+msgid "გააგრძელე გადახდა"
+msgstr "Process checkout"
+
+#: .\templates\registration\base_for_reg.html:58
+#, fuzzy
+#| msgid "არასწორი მონაცემები"
+msgid "მუსიკალური მაღაზია"
+msgstr "Music shop"
+
+#: .\templates\registration\login.html:6
+#, fuzzy
+#| msgid "კალათის შიგთავსის სანახავად, გთხოვთ გაიაროთ ავტორიზაცია"
+msgid "ავტორიზაციისთვის შეიყვანეთ თქვენი მონაცემები და დააკლიკეთ შესვლას"
+msgstr "Please log to view cart content"
+
+#: .\templates\registration\login.html:22
+#, fuzzy
+#| msgid "რეგისტრაცია წარმატებულია!"
+msgid "თუ არ ხარ რეგისტრირებული"
+msgstr "You've registered successfully"
+
+#: .\templates\registration\login.html:24
+msgid "დარეგისტრირდი"
+msgstr "Register"
+
+#: .\templates\registration\registration.html:6
+#, fuzzy
+msgid "რეგისტრაციისთვის შეიყვანეთ თქვენი მონაცემები"
+msgstr "Please enter your data and push the button 'registration'"
+
+
+msgid "კალათის შიგთავსის სანახავად, გთხოვთ გაიაროთ ავტორიზაცია"
+msgstr "Please log to view cart content"
+
+#: .\templates\registration\registration.html:14
+#, fuzzy
+#| msgid "რეგისტრაცია წარმატებულია!"
+msgid "რეგისტრაცია"
+msgstr "registration"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"

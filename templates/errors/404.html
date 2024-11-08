@@ -1,6 +1,7 @@
 {%extends "../base.html" %}
 {% load static %}
 {% block 404 %}
- <h1 class="text-black-50">You have to be authorized!</h1>
+{% load i18n %}
+ <h1 class="text-black-50">{% trans "გაიარეთ ავტორიზაცია" %}</h1>
 
 {% endblock %}

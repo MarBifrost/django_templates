@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 LOCALE_PATHS = [
@@ -86,6 +87,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
 
 TEMPLATES = [
     {
@@ -142,9 +144,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'ka'
+
 LANGUAGES=[
     ('en', 'English'),
-    ('ka', "Georgian")
+    ('ka', "Georgian"),
+
 ]
 
 TIME_ZONE = 'UTC'

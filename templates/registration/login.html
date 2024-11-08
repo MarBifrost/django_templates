@@ -1,8 +1,9 @@
 {%extends "./base_for_reg.html" %}
 {% load static %}
+{% load i18n %}
 {% block login %}
 <div class="text-lg-center" style="display: block; justify-content: center; align-items: center; margin-top: 340px;">
-    <h3 style="font-size: 15px; ">ავტორიზაციისთვის შეიყვანეთ თქვენი მონაცემები და დააკლიკეთ შესვლას</h3><br>
+    <h3 style="font-size: 15px; ">{% trans   "ავტორიზაციისთვის შეიყვანეთ თქვენი მონაცემები და დააკლიკეთ შესვლას" %}</h3><br>
     {% if messages %}
         <div class="alert alert-danger">
             {% for message in messages %}
@@ -18,9 +19,9 @@
     </form>
 </div><br>
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h3 style="font-size: 15px;">თუ არ ხარ რეგისტრირებული</h3>
+    <h3 style="font-size: 15px;">{% trans  "თუ არ ხარ რეგისტრირებული" %}</h3>
 
-        <a href="{% url 'store:registration' %}" class="btn-outline-dark">დარეგისტრირდი!</a>
+        <a href="{% url 'store:registration' %}" class="btn-outline-dark">{% trans  "დარეგისტრირდი!" %}</a>
 </div>
 
 {% endblock %}

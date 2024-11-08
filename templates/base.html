@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
     <head>
         <meta charset="utf-8">
-        <title>მელომანი</title>
+        <title>{% trans  "მელომანი" %}</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -42,7 +43,7 @@
                 <div class="container topbar bg-primary d-none d-lg-block">
                     <div class="d-flex justify-content-between">
                         <div class="top-info ps-2">
-                            <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">ჭავჭავაძის ქ. #36</a></small>
+                            <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">{% trans  "ჭავჭავაძის ქ. #36" %}</a></small>
                             <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">info@melomani.ge</a></small>
                         </div>
                         <div class="top-link pe-2">
@@ -54,23 +55,23 @@
                 </div>
                 <div class="container px-0">
                     <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                        <a href="{% url 'store:store' %}" class="navbar-brand"><h1 class="text-primary display-6">მუსიკალური მაღაზია</h1></a>
+                        <a href="{% url 'store:store' %}" class="navbar-brand"><h1 class="text-primary display-6">{% trans  "მუსიკალური მაღაზია "%}</h1></a>
                         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars text-primary"></span>
                         </button>
                         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
-                                <a href="{% url 'store:store' %}" class="nav-item nav-link active">მთავარი</a>
-                                <a href="{% url 'store:shop' %}" class="nav-item nav-link">მაღაზია</a>
+                                <a href="{% url 'store:store' %}" class="nav-item nav-link active">{% trans  "მთავარი" %}</a>
+                                <a href="{% url 'store:shop' %}" class="nav-item nav-link">{% trans  "მაღაზია" %}</a>
 <!--                                <a href="{% url 'store:shop_details' %}" class="nav-item nav-link">დეტალები</a>-->
                                 <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">შეკვეთა</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{% trans  "შეკვეთა" %}</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                        <a href="{% url 'order:cart' %}" class="dropdown-item">კალათა</a>
-                                        <a href="{% url 'order:checkout' %}" class="dropdown-item">გადახდა</a>
+                                        <a href="{% url 'order:cart' %}" class="dropdown-item">{% trans  "კალათა" %}</a>
+                                        <a href="{% url 'order:checkout' %}" class="dropdown-item">{% trans  "გადახდა" %}</a>
                                     </div>
                                 </div>
-                                <a href="{% url 'store:contact' %}" class="nav-item nav-link">კონტაქტი</a>
+                                <a href="{% url 'store:contact' %}" class="nav-item nav-link">{% trans  "კონტაქტი" %}</a>
                             </div>
                             <div class="d-flex m-3 me-0">
                                 <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
@@ -125,8 +126,8 @@
                     <div class="row g-4">
                         <div class="col-lg-3">
                             <a href="#">
-                                <h1 class="text-primary mb-0">მელომანი</h1>
-                                <p class="text-secondary mb-0">მუსიკა შენი გემოვნებით</p>
+                                <h1 class="text-primary mb-0">{% trans  "მელომანი" %}</h1>
+                                <p class="text-secondary mb-0">{% trans  "მუსიკა შენი გემოვნებით" %}</p>
                             </a>
                         </div>
                         <div class="col-lg-6">
@@ -148,33 +149,33 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">ინფორმაცია მაღაზიის შესახებ:</h4>
-                            <a class="btn-link" href="">ჩვენს შესახებ</a>
-                            <a class="btn-link" href="">დაგვიკავშირდი</a>
-                            <a class="btn-link" href="">კონფიდენციალურობა</a>
-                            <a class="btn-link" href="">წესები და პირობები</a>
-                            <a class="btn-link" href="">დაბრუნების პოლიტიკა</a>
-                            <a class="btn-link" href="">FAQs და დახმარება</a>
+                            <h4 class="text-light mb-3">{% trans  "ინფორმაცია მაღაზიის შესახებ:" %}</h4>
+                            <a class="btn-link" href="">{% trans  "ჩვენს შესახებ "%}</a>
+                            <a class="btn-link" href="">{% trans  "დაგვიკავშირდი" %}</a>
+                            <a class="btn-link" href="">{% trans  "კონფიდენციალურობა" %}</a>
+                            <a class="btn-link" href="">{% trans  "წესები და პირობები" %}</a>
+                            <a class="btn-link" href="">{% trans  "დაბრუნების პოლიტიკა" %}</a>
+                            <a class="btn-link" href="">{% trans  "FAQs და დახმარება" %}</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">ანგარიში</h4>
-                            <a class="btn-link" href="">ჩემი ანგარიში</a>
-                            <a class="btn-link" href="">მაღაზიის დეტალები</a>
-                            <a class="btn-link" href="">თქვენი კალათა</a>
-                            <a class="btn-link" href="">სურვილების სია</a>
-                            <a class="btn-link" href="">შეკვეთების ისტორია</a>
-                            <a class="btn-link" href="">საერთაშორისო შეკვეთები</a>
+                            <h4 class="text-light mb-3">{% trans  "ანგარიში" %}</h4>
+                            <a class="btn-link" href="">{% trans  "ჩემი ანგარიში" %}</a>
+                            <a class="btn-link" href="">{% trans  "მაღაზიის დეტალები" %}</a>
+                            <a class="btn-link" href="">{% trans  "თქვენი კალათა" %}</a>
+                            <a class="btn-link" href="">{% trans  "სურვილების სია" %}</a>
+                            <a class="btn-link" href="">{% trans  "შეკვეთების ისტორია" %}</a>
+                            <a class="btn-link" href="">{% trans  "საერთაშორისო შეკვეთები" %}</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <h4 class="text-light mb-3">კონტაქტი</h4>
-                            <p>მისამართი: თბილისი, ჭავჭავაძის ქ. #36</p>
-                            <a href="mailto:info@melomani.ge">ელფოსტა: info@melomani.ge</a>
-                            <a href="tel:+995322123456">ტელეფონი: +995 322 123456</a>
-                            <p>გადახდის მეთოდები:</p>
+                            <h4 class="text-light mb-3">{% trans  "კონტაქტი" %}</h4>
+                            <p>{% trans  "მისამართი: თბილისი, ჭავჭავაძის ქ. #36" %}</p>
+                            <a href="mailto:info@melomani.ge">{% trans  "ელფოსტა: info@melomani.ge" %}</a>
+                            <a href="tel:+995322123456">{% trans  "ტელეფონი: +995 322 123456" %}</a>
+                            <p>{% trans  "გადახდის მეთოდები:" %}</p>
                             <img src="{% static 'img/payment.png' %}" class="img-fluid" alt="">
                         </div>
                     </div>
