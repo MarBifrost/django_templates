@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'mptt',
     'debug_toolbar',
     'accounts.apps.AccountsConfig',
+    'rosetta',
 ]
 
 STATIC_URL = '/static/'

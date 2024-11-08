@@ -1,5 +1,5 @@
 {%extends "./base_for_accounts.html" %}
-{% load static %}
+{% load static i18n %}
 {% block profile %}
 
     <h2>{{ user.username }}'s profile</h2>
@@ -9,7 +9,7 @@
 </form>
 <form method="post" action="{% url 'accounts:logout' %}" style="display: flex; align-items: center; justify-content: center; margin-top: 500px;">
     {% csrf_token %}
-    <button type="submit">გამოსვლა</button>
+    <button type="submit">{% trans "გამოსვლა" %}</button>
 </form>
 
 

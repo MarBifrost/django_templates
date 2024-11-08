@@ -9,6 +9,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.utils.translation import gettext as _
 
 # Create your views here.
 
@@ -92,7 +93,7 @@ class Registration(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, "რეგისტრაცია წარმატებულია!")
+            messages.success(request, _("რეგისტრაცია წარმატებულია!"))
             return redirect('accounts:profile')
         else:
             messages.error(request, form.errors)
@@ -117,5 +118,5 @@ class CustomLoginView(FormView):
         return redirect(self.get_success_url())
 
     def form_invalid(self, form):
-        messages.error(self.request, 'არასწორი მონაცემები')
+        messages.error(self.request, _('არასწორი მონაცემები'))
         return super().form_invalid(form)

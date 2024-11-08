@@ -7,6 +7,7 @@ from .models import Cart, CartItem
 from django.views import View
 from django.views.generic import TemplateView
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 class CartView(LoginRequiredMixin, TemplateView):
     template_name = 'order/cart.html'
@@ -16,7 +17,7 @@ class CartView(LoginRequiredMixin, TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            messages.info(request, 'კალათის შიგთავსის სანახავად, გთხოვთ გაიაროთ ავტორიზაცია')
+            messages.info(request, _('კალათის შიგთავსის სანახავად, გთხოვთ გაიაროთ ავტორიზაცია'))
             return redirect(self.login_url)
         return super().dispatch(request, *args, **kwargs)
 
