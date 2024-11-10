@@ -10,6 +10,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext as _
+from django.utils import translation
+
 
 # Create your views here.
 
@@ -21,6 +23,8 @@ from order.models import Cart, CartItem
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import FormView
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 
 class StoreView(View):
@@ -120,3 +124,7 @@ class CustomLoginView(FormView):
     def form_invalid(self, form):
         messages.error(self.request, _('არასწორი მონაცემები'))
         return super().form_invalid(form)
+
+
+def switch_language(request):
+    swit

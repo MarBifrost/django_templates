@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts.apps.AccountsConfig',
     'rosetta',
+    'modeltranslation',
 ]
 
 STATIC_URL = '/static/'
@@ -152,12 +153,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'ka'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ka'
 
-LANGUAGES=[
-    ('en', 'English'),
-    ('ka', "Georgian"),
-
-]
+gettext = lambda s: s
+LANGUAGES = (
+    ('ka', gettext('Georgian')),
+    ('en', gettext('English')),
+)
 
 TIME_ZONE = 'UTC'
 

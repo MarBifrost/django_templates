@@ -26,7 +26,9 @@ from django.conf.urls.i18n import i18n_patterns
 #     activate('ka')
 #     return redirect(f'/{get_language()}')
 
-urlpatterns = []
+urlpatterns = [
+    path('rosetta/', include('rosetta.urls')),
+]
 
 urlpatterns += i18n_patterns(
     path('', include('store.urls', namespace='store')),

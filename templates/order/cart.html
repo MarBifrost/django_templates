@@ -2,7 +2,9 @@
 {% load static %}
 {% load i18n %}
 {% block cart %}
+{% load cache %}}
 <!-- Single Page Header start -->
+        {% cache 300 nav_bar %}
         <div class="container-fluid page-header py-5">
             <h1 class="text-center text-white display-6">{% trans "კალათა" %}</h1>
             <ol class="breadcrumb justify-content-center mb-0">
@@ -79,4 +81,5 @@
             </div>
         </div>
         <!-- Cart Page End -->
+{% endcache %}
 {% endblock %}
