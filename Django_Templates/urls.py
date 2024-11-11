@@ -27,6 +27,7 @@ from django.conf.urls.i18n import i18n_patterns
 #     return redirect(f'/{get_language()}')
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
 ]
 
@@ -34,7 +35,6 @@ urlpatterns += i18n_patterns(
     path('', include('store.urls', namespace='store')),
     path('order/', include('order.urls', namespace='order')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('admin/', admin.site.urls),
 )
 
 if settings.DEBUG:
